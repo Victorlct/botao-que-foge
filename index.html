@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+  
+<script type="text/javascript">
+    function moverBotao() {
+        var botao = document.getElementById("botaoFugir");
+        var x = Math.floor(Math.random() * 400);
+        var y = Math.floor(Math.random() * 400);
+        botao.style.position = "absolute";
+        botao.style.left = x + "px";
+        botao.style.top = y + "px";
+    }
+
+    function handleMouseMove(event) {
+        var botao = document.getElementById("botaoFugir");
+        var rect = botao.getBoundingClientRect();
+        var distX = event.clientX - rect.left;
+        var distY = event.clientY - rect.top;
+        var dist = Math.sqrt(distX * distX + distY * distY);
+        if (dist < 90) {
+            moverBotao();
+        }
+    }
+    document.onmousemove = handleMouseMove;
+</script>
+</head>
+<body>
+    <button class="button-19" id="botaoFugir">Clique aqui</button>
+</body>
+</html>
